@@ -2,6 +2,7 @@ package com.theandroidfactory.clock
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.theandroidfactory.clock.databinding.ActivityMainBinding
 import java.util.*
@@ -19,11 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             viewModel.onButtonClicked()
         }
-        viewModel.liveInfo.observe(this) {
-            binding.text.apply {
-                text = it.text
-                rotation = it.rotation.toFloat()
-                setBackgroundColor(it.backgroundColor)
+        viewModel.liveSegment.observe(this) {
+            binding.segment.root.apply {
+                setBackgroundColor(ContextCompat.getColor(context, it))
             }
         }
     }
