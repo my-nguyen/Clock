@@ -7,23 +7,45 @@
     tools:context=".MainActivity">
 
     <include
-        android:id="@+id/digit_left"
+        android:id="@+id/hour_left"
         layout="@layout/digit"
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/digit_right"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@id/hour_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/digit_right"
+        android:id="@+id/hour_right"
+        layout="@layout/digit"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/hour_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/second_left"
         layout="@layout/digit"
         android:layout_width="100dp"
         android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/second_right"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hour_left" />
+
+    <include
+        android:id="@+id/second_right"
+        layout="@layout/digit"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/digit_left"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/second_left"
+        app:layout_constraintTop_toBottomOf="@id/hour_left" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

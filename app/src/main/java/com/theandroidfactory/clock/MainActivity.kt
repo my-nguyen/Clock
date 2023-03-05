@@ -19,11 +19,17 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.digitLeft.digit.observe(this) {
-            setupLayout(binding.digitLeft, it)
+        viewModel.hourLeft.digit.observe(this) {
+            setupLayout(binding.hourLeft, it)
         }
-        viewModel.digitRight.digit.observe(this) {
-            setupLayout(binding.digitRight, it)
+        viewModel.hourRight.digit.observe(this) {
+            setupLayout(binding.hourRight, it)
+        }
+        viewModel.secondLeft.digit.observe(this) {
+            setupLayout(binding.secondLeft, it)
+        }
+        viewModel.secondRight.digit.observe(this) {
+            setupLayout(binding.secondRight, it)
         }
         viewModel.startCounting()
     }
