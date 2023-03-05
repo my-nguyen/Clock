@@ -7,80 +7,23 @@
     tools:context=".MainActivity">
 
     <include
-        android:id="@+id/segmentTop"
-        layout="@layout/segment"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        android:id="@+id/digit_left"
+        layout="@layout/digit"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/digit_right"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/segmentTopLeft"
-        layout="@layout/segment"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/segmentMiddle"
-        app:layout_constraintStart_toStartOf="@id/segmentTop"
-        app:layout_constraintTop_toBottomOf="@id/segmentTop" />
-
-    <include
-        android:id="@+id/segmentTopRight"
-        layout="@layout/segment"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/segmentMiddle"
-        app:layout_constraintEnd_toEndOf="@id/segmentTop"
-        app:layout_constraintTop_toBottomOf="@id/segmentTop" />
-
-    <include
-        android:id="@+id/segmentMiddle"
-        layout="@layout/segment"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginHorizontal="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/segmentBottom"
-        app:layout_constraintTop_toBottomOf="@id/segmentTop" />
-
-    <include
-        android:id="@+id/segmentBottomLeft"
-        layout="@layout/segment"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/segmentBottom"
-        app:layout_constraintStart_toStartOf="@id/segmentMiddle"
-        app:layout_constraintTop_toBottomOf="@id/segmentMiddle" />
-
-    <include
-        android:id="@+id/segmentBottomRight"
-        layout="@layout/segment"
-        android:layout_width="20dp"
-        android:layout_height="0dp"
-        android:layout_marginVertical="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/segmentBottom"
-        app:layout_constraintEnd_toEndOf="@id/segmentMiddle"
-        app:layout_constraintTop_toBottomOf="@id/segmentMiddle" />
-
-    <include
-        android:id="@+id/segmentBottom"
-        layout="@layout/segment"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Click me"
+        android:id="@+id/digit_right"
+        layout="@layout/digit"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/segmentBottom" />
+        app:layout_constraintStart_toEndOf="@id/digit_left"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
