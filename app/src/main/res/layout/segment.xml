@@ -6,6 +6,6 @@
     android:layout_height="20dp"
     android:layout_marginHorizontal="2dp"
     app:cardCornerRadius="20dp"
-    tools:cardBackgroundColor="@color/selected">
+    app:cardBackgroundColor="@color/selected">
 
 </androidx.cardview.widget.CardView>

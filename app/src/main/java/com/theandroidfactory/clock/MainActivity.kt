@@ -1,11 +1,12 @@
 package com.theandroidfactory.clock
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.theandroidfactory.clock.databinding.ActivityMainBinding
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MyViewModel by lazy {
@@ -17,15 +18,20 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener {
-            viewModel.onButtonClicked()
-        }
-        viewModel.liveSegment.observe(this) {
-            binding.segment.root.apply {
-                setBackgroundColor(ContextCompat.getColor(context, it))
-            }
-        }
+        bindData(viewModel.segmentTop, binding.segmentTop.root)
+        bindData(viewModel.segmentTopLeft, binding.segmentTopLeft.root)
+        bindData(viewModel.segmentTopRight, binding.segmentTopRight.root)
+        bindData(viewModel.segmentMiddle, binding.segmentMiddle.root)
+        bindData(viewModel.segmentBottomLeft, binding.segmentBottomLeft.root)
+        bindData(viewModel.segmentBottomRight, binding.segmentBottomRight.root)
+        bindData(viewModel.segmentBottom, binding.segmentBottom.root)
+
+        viewModel.startCounting()
     }
 
-    private fun getRandomString() = Random().nextInt(100).toString()
+    private fun bindData(data: LiveData<Int>, cardView: CardView) {
+        data.observe(this) {
+            cardView.setBackgroundColor(ContextCompat.getColor(this, it))
+        }
+    }
 }
